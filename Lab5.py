@@ -14,7 +14,7 @@ for i in range(images):
     forest_removed = functions.ApplyMaskAsBlack(img_rgb, forest_mask)
 
     fields_blured = functions.Blur(forest_removed, 15, 15)
-    fields_kmeaned = functions.KMeans(forest_removed, 5, 5)
+    fields_kmeaned = functions.KMeans(fields_blured, 5, 5)
     fields_merged_means = functions.MergeSimilarKMeansClusters(fields_kmeaned, color_tolerance=40)
     edge_mask = functions.EdgeDetect(img_rgb, merge_kernel_size=20)
     fields_meaned_edged = functions.ApplyMaskAsBlack(fields_merged_means, edge_mask)
