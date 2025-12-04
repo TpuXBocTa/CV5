@@ -20,8 +20,8 @@ for i in range(images):
     fields_meaned_edged = functions.ApplyMaskAsBlack(fields_merged_means, edge_mask)
     field_mask = functions.HighlightKMeansRegionsExcludeColors(
         img_rgb,
-        fields_meaned_edged, target_colors=[(190, 190, 190), (0, 0, 0)], color_tolerance=60, min_area=3000,
-        max_hole_ratio=0.1, rect_fill_min=0.45, showcase=False)
+        fields_meaned_edged, target_colors=[(190, 190, 190), (0, 0, 0)], color_tolerance=60, min_area=2500,
+        max_hole_ratio=0.1, rect_fill_min=0.43, showcase=False)
     result = functions.HighlightZonesWithMasks(img_rgb, [forest_mask, field_mask], [(0, 255, 0), (255, 0, 0)],
                                                labels=["Forest", "Fields"], alpha=0.25, showcase=True,
                                                name=str(i) + "zones.png")
